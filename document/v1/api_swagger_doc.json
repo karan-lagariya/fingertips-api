@@ -1,0 +1,3090 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "MSH PLATFORM API DOCUMENT. \n \n ENC-API-KEY:- X2BKGjwEWj+kiKWhBiJ0yQ== \n \n API-KEY :- MSHPROAPIKEY \n \n ENC-KEY:- SravrVJy1pxBs7DRyZhoLE1hkJKfF3SZ \n \n ENC-VAL:- SravrVJy1pxBs7DR \n \n Accept-Language: en \n \n TOKEN: [pass encyption value]",
+        "version": "1.0.0",
+        "title": "MSH Api Document"
+    },
+    "host": "44.219.88.174",
+    "basePath": "/api/v1",
+    "schemes": ["http"],
+    "paths": {
+        "/admin/login": {
+            "post": {
+                "tags": ["Admin"],
+                "summary": "Login to admin panel",
+                "description": "This API is use for login in Admin panel. \n \n email : required \n \n password : required \n \n Note: Add encrypted data while testing",
+                "operationId": "login",
+                "consumes": ["text/plain", "application/json"],
+                "produces": ["text/plain"],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "api-key",
+                        "type": "string",
+                        "required": true,
+                        "default": "X2BKGjwEWj+kiKWhBiJ0yQ==",
+                        "description": "Please add encrypted API KEY"
+                    },
+                    {
+                        "in": "header",
+                        "name": "accept-language",
+                        "type": "string",
+                        "required": true,
+                        "default": "en"
+                    },
+                    {
+                        "in": "body",
+                        "name": "data",
+                        "description": "Login to admin panel",
+                        "required": true,
+                        "schema": {
+                            "required": ["email", "password"],
+                            "properties": {
+                                "email": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "admin@mail.com"
+                                },
+                                "password": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "12345678"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ApiResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/logout": {
+            "get": {
+                "tags": ["Admin"],
+                "summary": "Logout from admin panel",
+                "description": "This API is use to logout from admin panel.",
+                "operationId": "logout",
+                "consumes": ["text/plain", "application/json"],
+                "produces": ["text/plain"],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "api-key",
+                        "type": "string",
+                        "required": true,
+                        "default": "X2BKGjwEWj+kiKWhBiJ0yQ==",
+                        "description": "Please add encrypted API KEY"
+                    },
+                    {
+                        "in": "header",
+                        "name": "accept-language",
+                        "type": "string",
+                        "required": true,
+                        "default": "en"
+                    },
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "type": "string",
+                        "required": true,
+                        "default": "AEBTG3YYPJlt+R5Zfp5FMCoRW8/F5bjPOzfIwjN5t6rePM5RYJe68OtPyNUX3tYLzZ9RWAyM30YHMmry+5xQ9LCgfo8K34Ewhq78JKo8qas="
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ApiResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/change-password": {
+            "post": {
+                "tags": ["Admin"],
+                "summary": "Change password for Admin",
+                "description": "This API is use to change password for Admin. \n \n old_password : required \n \n new_password : required \n \n Note: Add encrypted data while testing",
+                "operationId": "change-password",
+                "consumes": ["text/plain", "application/json"],
+                "produces": ["text/plain"],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "api-key",
+                        "type": "string",
+                        "required": true,
+                        "default": "X2BKGjwEWj+kiKWhBiJ0yQ==",
+                        "description": "Please add encrypted API KEY"
+                    },
+                    {
+                        "in": "header",
+                        "name": "accept-language",
+                        "type": "string",
+                        "required": true,
+                        "default": "en"
+                    },
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "type": "string",
+                        "required": true,
+                        "default": "AEBTG3YYPJlt+R5Zfp5FMCoRW8/F5bjPOzfIwjN5t6rePM5RYJe68OtPyNUX3tYLzZ9RWAyM30YHMmry+5xQ9LCgfo8K34Ewhq78JKo8qas="
+                    },
+                    {
+                        "in": "body",
+                        "name": "data",
+                        "description": "Change password for Admin",
+                        "required": true,
+                        "schema": {
+                            "required": ["old_password", "new_password"],
+                            "properties": {
+                                "old_password": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "12345678"
+                                },
+                                "new_password": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "123456789"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ApiResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/get-profile": {
+            "get": {
+                "tags": ["Admin"],
+                "summary": "Get admin profile",
+                "description": "This API is use to get admin profile",
+                "operationId": "get-profile",
+                "consumes": ["text/plain", "application/json"],
+                "produces": ["text/plain"],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "api-key",
+                        "type": "string",
+                        "required": true,
+                        "default": "X2BKGjwEWj+kiKWhBiJ0yQ==",
+                        "description": "Please add encrypted API KEY"
+                    },
+                    {
+                        "in": "header",
+                        "name": "accept-language",
+                        "type": "string",
+                        "required": true,
+                        "default": "en"
+                    },
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "type": "string",
+                        "required": true,
+                        "default": "AEBTG3YYPJlt+R5Zfp5FMCoRW8/F5bjPOzfIwjN5t6rePM5RYJe68OtPyNUX3tYLzZ9RWAyM30YHMmry+5xQ9LCgfo8K34Ewhq78JKo8qas="
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ApiResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/update-profile": {
+            "post": {
+                "tags": ["Admin"],
+                "summary": "Update admin profile",
+                "description": "This API is use to update admin profile \n \n first_name : required \n \n last_name : required \n \n profile_image : optional \n \n Note: Add encrypted data while testing",
+                "operationId": "update-profile",
+                "consumes": ["text/plain", "application/json"],
+                "produces": ["text/plain"],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "api-key",
+                        "type": "string",
+                        "required": true,
+                        "default": "X2BKGjwEWj+kiKWhBiJ0yQ==",
+                        "description": "Please add encrypted API KEY"
+                    },
+                    {
+                        "in": "header",
+                        "name": "accept-language",
+                        "type": "string",
+                        "required": true,
+                        "default": "en"
+                    },
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "type": "string",
+                        "required": true,
+                        "default": "AEBTG3YYPJlt+R5Zfp5FMCoRW8/F5bjPOzfIwjN5t6rePM5RYJe68OtPyNUX3tYLzZ9RWAyM30YHMmry+5xQ9LCgfo8K34Ewhq78JKo8qas="
+                    },
+                    {
+                        "in": "body",
+                        "name": "data",
+                        "description": "Update admin profile",
+                        "required": true,
+                        "schema": {
+                            "required": ["first_name", "last_name"],
+                            "properties": {
+                                "first_name": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "admin"
+                                },
+                                "last_name": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "test"
+                                },
+                                "profile_image": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "test.png"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ApiResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/page-contents-add-update": {
+            "post": {
+                "tags": ["Admin"],
+                "summary": "Update page contents for privacy policy, Terms & conditions and About us",
+                "description": "This API is use to update page contents for privacy policy, Terms & conditions and About us \n \n title : required \n \n tag : required | in (PRIVACY_POLICY , TERMS_CONDITIONS , ABOUT_US) \n \n data : required \n \n Note: Add encrypted data while testing",
+                "operationId": "page-contents-add-update",
+                "consumes": ["text/plain", "application/json"],
+                "produces": ["text/plain"],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "api-key",
+                        "type": "string",
+                        "required": true,
+                        "default": "X2BKGjwEWj+kiKWhBiJ0yQ==",
+                        "description": "Please add encrypted API KEY"
+                    },
+                    {
+                        "in": "header",
+                        "name": "accept-language",
+                        "type": "string",
+                        "required": true,
+                        "default": "en"
+                    },
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "type": "string",
+                        "required": true,
+                        "default": "AEBTG3YYPJlt+R5Zfp5FMCoRW8/F5bjPOzfIwjN5t6rePM5RYJe68OtPyNUX3tYLzZ9RWAyM30YHMmry+5xQ9LCgfo8K34Ewhq78JKo8qas="
+                    },
+                    {
+                        "in": "body",
+                        "name": "data",
+                        "description": "Update admin profile",
+                        "required": true,
+                        "schema": {
+                            "required": ["title", "tag", "data"],
+                            "properties": {
+                                "title": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "Privacy Policy"
+                                },
+                                "tag": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "PRIVACY_POLICY"
+                                },
+                                "data": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "<p>Monte Sereno Health●</p><p>Privacy Policy</p><p>Agreement</p><p>&nbsp;</p><p>Privacy Policy - MSH</p><p>&nbsp;</p><p>Effective Date:&nbsp; August 31st, 2021</p><p>Monte Sereno Holdings Corporation (&ldquo;MSH ,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) recognizes the importance of protecting the privacy of your personal information, and we have prepared this Privacy Policy to provide you with important information about the privacy practices applicable to the MSH Platform and any website or service that links to or refers to this Privacy Policy (collectively, the &ldquo;Services&rdquo;).&nbsp; In addition, individually identifiable information that you provide to us for purposes of obtaining medical care from Monte Sereno Health Silva Platform (&ldquo;SILVA&rdquo;) (such information is also referred to as &ldquo;Protected Health Information&rdquo; or &ldquo;PHI&rdquo;) will also be subject to any SILVA Health Insurance Portability and Accountability Act Notice of Privacy Practices (the &ldquo;HIPAA Notice&rdquo;), which may be provided in future.&nbsp; The HIPAA Notice describes how SILVA and we can use and share your PHI and also describes your rights with respect to your PHI.&nbsp; To the extent that there is a conflict between this Privacy Policy and the HIPAA Notice with respect to PHI, the HIPAA Notice will prevail.</p>"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ApiResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/page-contents-list": {
+            "get": {
+                "tags": ["Admin"],
+                "summary": "Get page content list api for privacy policy, Terms & conditions and About us",
+                "description": "This API is use to get page content list api for privacy policy, Terms & conditions and About us \n \n Note: Add encrypted data while testing",
+                "operationId": "page-contents-list",
+                "consumes": ["text/plain", "application/json"],
+                "produces": ["text/plain"],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "api-key",
+                        "type": "string",
+                        "required": true,
+                        "default": "X2BKGjwEWj+kiKWhBiJ0yQ==",
+                        "description": "Please add encrypted API KEY"
+                    },
+                    {
+                        "in": "header",
+                        "name": "accept-language",
+                        "type": "string",
+                        "required": true,
+                        "default": "en"
+                    },
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "type": "string",
+                        "required": true,
+                        "default": "AEBTG3YYPJlt+R5Zfp5FMCoRW8/F5bjPOzfIwjN5t6rePM5RYJe68OtPyNUX3tYLzZ9RWAyM30YHMmry+5xQ9LCgfo8K34Ewhq78JKo8qas="
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ApiResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/users-list": {
+            "post": {
+                "tags": ["Admin"],
+                "summary": "Get users list api for (Patient, Doctors, Chemist)",
+                "description": "This API is use to get users list api for (Patient, Doctors, Chemist) \n \n page : required \n \n record_count : required \n \n search_text : optional (search based on first_name,middle_name,last_name,email,phone_no) \n \n Note: Add encrypted data while testing",
+                "operationId": "users-list",
+                "consumes": ["text/plain", "application/json"],
+                "produces": ["text/plain"],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "api-key",
+                        "type": "string",
+                        "required": true,
+                        "default": "X2BKGjwEWj+kiKWhBiJ0yQ==",
+                        "description": "Please add encrypted API KEY"
+                    },
+                    {
+                        "in": "header",
+                        "name": "accept-language",
+                        "type": "string",
+                        "required": true,
+                        "default": "en"
+                    },
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "type": "string",
+                        "required": true,
+                        "default": "AEBTG3YYPJlt+R5Zfp5FMCoRW8/F5bjPOzfIwjN5t6rePM5RYJe68OtPyNUX3tYLzZ9RWAyM30YHMmry+5xQ9LCgfo8K34Ewhq78JKo8qas="
+                    },
+                    {
+                        "in": "body",
+                        "name": "data",
+                        "description": "Get users list api for (Patient, Doctors, Chemist)",
+                        "required": true,
+                        "schema": {
+                            "required": ["page", "record_count"],
+                            "properties": {
+                                "page": {
+                                    "type": "integer",
+                                    "description": "",
+                                    "example": 1
+                                },
+                                "record_count": {
+                                    "type": "integer",
+                                    "description": "",
+                                    "example": 10
+                                },
+                                "search_text": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "test"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ApiResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/users-feedback-list": {
+            "post": {
+                "tags": ["Admin"],
+                "summary": "Get users feedback list api for (Patient, Doctors)",
+                "description": "This API is use to get users feedback list api for (Patient, Doctors) \n \n user_id : required \n \n Note: Add encrypted data while testing",
+                "operationId": "users-feedback-list",
+                "consumes": ["text/plain", "application/json"],
+                "produces": ["text/plain"],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "api-key",
+                        "type": "string",
+                        "required": true,
+                        "default": "X2BKGjwEWj+kiKWhBiJ0yQ==",
+                        "description": "Please add encrypted API KEY"
+                    },
+                    {
+                        "in": "header",
+                        "name": "accept-language",
+                        "type": "string",
+                        "required": true,
+                        "default": "en"
+                    },
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "type": "string",
+                        "required": true,
+                        "default": "AEBTG3YYPJlt+R5Zfp5FMCoRW8/F5bjPOzfIwjN5t6rePM5RYJe68OtPyNUX3tYLzZ9RWAyM30YHMmry+5xQ9LCgfo8K34Ewhq78JKo8qas="
+                    },
+                    {
+                        "in": "body",
+                        "name": "data",
+                        "description": "Get users feedback list api for (Patient, Doctors)",
+                        "required": true,
+                        "schema": {
+                            "required": ["user_id"],
+                            "properties": {
+                                "user_id": {
+                                    "type": "integer",
+                                    "description": "",
+                                    "example": 1
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ApiResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/delete-user": {
+            "post": {
+                "tags": ["Admin"],
+                "summary": "Delete user (Patient, Doctors, Chemist)",
+                "description": "This API is use to delete user (Patient, Doctors, Chemist) \n \n user_id : required \n \n Note: Add encrypted data while testing",
+                "operationId": "delete-user",
+                "consumes": ["text/plain", "application/json"],
+                "produces": ["text/plain"],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "api-key",
+                        "type": "string",
+                        "required": true,
+                        "default": "X2BKGjwEWj+kiKWhBiJ0yQ==",
+                        "description": "Please add encrypted API KEY"
+                    },
+                    {
+                        "in": "header",
+                        "name": "accept-language",
+                        "type": "string",
+                        "required": true,
+                        "default": "en"
+                    },
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "type": "string",
+                        "required": true,
+                        "default": "AEBTG3YYPJlt+R5Zfp5FMCoRW8/F5bjPOzfIwjN5t6rePM5RYJe68OtPyNUX3tYLzZ9RWAyM30YHMmry+5xQ9LCgfo8K34Ewhq78JKo8qas="
+                    },
+                    {
+                        "in": "body",
+                        "name": "data",
+                        "description": "Delete user (Patient, Doctors, Chemist)",
+                        "required": true,
+                        "schema": {
+                            "required": ["user_id"],
+                            "properties": {
+                                "user_id": {
+                                    "type": "integer",
+                                    "description": "",
+                                    "example": 1
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ApiResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/auth/signup": {
+            "post": {
+                "tags": ["Auth_Patient_Doctor_Chemist"],
+                "summary": "Signup (patient/doctor/chemist)",
+                "description": "This API is use for sign up Application. \n \n first_name : required \n \n middle_name : required \n \n last_name : required \n \n email : required | email \n \n country_code : required \n \n password : required \n \n phone_no : required \n \n role : required | in 1,2,3 (1 => patient, 2 => doctor, 3 => chemist) \n \n license_no : required_if (role = 2 | 3) \n \n ip : optional \n \n Note: Add encrypted data while testing",
+                "operationId": "signup",
+                "consumes": ["text/plain", "application/json"],
+                "produces": ["text/plain"],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "api-key",
+                        "type": "string",
+                        "required": true,
+                        "default": "X2BKGjwEWj+kiKWhBiJ0yQ==",
+                        "description": "Please add encrypted API KEY"
+                    },
+                    {
+                        "in": "header",
+                        "name": "accept-language",
+                        "type": "string",
+                        "required": true,
+                        "default": "en"
+                    },
+                    {
+                        "in": "body",
+                        "name": "data",
+                        "description": "Signup (patient/doctor/chemist)",
+                        "required": true,
+                        "schema": {
+                            "required": ["email", "password"],
+                            "properties": {
+                                "first_name": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "test"
+                                },
+                                "middle_name": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "test"
+                                },
+                                "last_name": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "test"
+                                },
+                                "email": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "testuser12@gmail.com"
+                                },
+                                "password": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "12345678"
+                                },
+                                "country_code": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "+91"
+                                },
+                                "phone_no": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "1234567890"
+                                },
+                                "role": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "2"
+                                },
+                                "license_no": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "XXXX123PPLO"
+                                },
+                                "ip": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "171.189.125.214"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ApiResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/auth/login": {
+            "post": {
+                "tags": ["Auth_Patient_Doctor_Chemist"],
+                "summary": "Login (patient/doctor/chemist)",
+                "description": "This API is use for sign in Application. \n \n email : required | email \n \n password : required \n \n code : required (Add patient doctor OR chemist code which is provided while signup) \n \n Note: Add encrypted data while testing",
+                "operationId": "login",
+                "consumes": ["text/plain", "application/json"],
+                "produces": ["text/plain"],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "api-key",
+                        "type": "string",
+                        "required": true,
+                        "default": "X2BKGjwEWj+kiKWhBiJ0yQ==",
+                        "description": "Please add encrypted API KEY"
+                    },
+                    {
+                        "in": "header",
+                        "name": "accept-language",
+                        "type": "string",
+                        "required": true,
+                        "default": "en"
+                    },
+                    {
+                        "in": "body",
+                        "name": "data",
+                        "description": "Login (patient/doctor/chemist)",
+                        "required": true,
+                        "schema": {
+                            "required": ["email", "password", "code"],
+                            "properties": {
+                                "email": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "testuser12@gmail.com"
+                                },
+                                "password": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "12345678"
+                                },
+                                "code": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "PT-290QE4I491"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ApiResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/auth/verify-email": {
+            "post": {
+                "tags": ["Auth_Patient_Doctor_Chemist"],
+                "summary": "Verify email for (patient/doctor/chemist)",
+                "description": "This API is use for verify email for (patient/doctor/chemist). \n \n token : required \n \n Note: Add encrypted data while testing",
+                "operationId": "verify-email",
+                "consumes": ["text/plain", "application/json"],
+                "produces": ["text/plain"],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "api-key",
+                        "type": "string",
+                        "required": true,
+                        "default": "X2BKGjwEWj+kiKWhBiJ0yQ==",
+                        "description": "Please add encrypted API KEY"
+                    },
+                    {
+                        "in": "header",
+                        "name": "accept-language",
+                        "type": "string",
+                        "required": true,
+                        "default": "en"
+                    },
+                    {
+                        "in": "body",
+                        "name": "data",
+                        "description": "Verify email for (patient/doctor/chemist)",
+                        "required": true,
+                        "schema": {
+                            "required": ["token"],
+                            "properties": {
+                                "token": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "ASASASW123"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ApiResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/auth/forgot-password": {
+            "post": {
+                "tags": ["Auth_Patient_Doctor_Chemist"],
+                "summary": "Forgot password for (patient/doctor/chemist)",
+                "description": "This API is use to forgot password for (patient/doctor/chemist). \n \n email : required \n \n Note: Add encrypted data while testing",
+                "operationId": "forgot-password",
+                "consumes": ["text/plain", "application/json"],
+                "produces": ["text/plain"],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "api-key",
+                        "type": "string",
+                        "required": true,
+                        "default": "X2BKGjwEWj+kiKWhBiJ0yQ==",
+                        "description": "Please add encrypted API KEY"
+                    },
+                    {
+                        "in": "header",
+                        "name": "accept-language",
+                        "type": "string",
+                        "required": true,
+                        "default": "en"
+                    },
+                    {
+                        "in": "body",
+                        "name": "data",
+                        "description": "Forgot password for (patient/doctor/chemist)",
+                        "required": true,
+                        "schema": {
+                            "required": ["email"],
+                            "properties": {
+                                "email": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "test@mailinator.com"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ApiResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/auth/resend-email": {
+            "post": {
+                "tags": ["Auth_Patient_Doctor_Chemist"],
+                "summary": "Resend email for (patient/doctor/chemist) verification",
+                "description": "This API is use to resend email for (patient/doctor/chemist) verification. \n \n email : required \n \n Note: Add encrypted data while testing",
+                "operationId": "resend-email",
+                "consumes": ["text/plain", "application/json"],
+                "produces": ["text/plain"],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "api-key",
+                        "type": "string",
+                        "required": true,
+                        "default": "X2BKGjwEWj+kiKWhBiJ0yQ==",
+                        "description": "Please add encrypted API KEY"
+                    },
+                    {
+                        "in": "header",
+                        "name": "accept-language",
+                        "type": "string",
+                        "required": true,
+                        "default": "en"
+                    },
+                    {
+                        "in": "body",
+                        "name": "data",
+                        "description": "Resend email for (patient/doctor/chemist)",
+                        "required": true,
+                        "schema": {
+                            "required": ["email"],
+                            "properties": {
+                                "token": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "test@mailinator.com"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ApiResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/auth/change-password": {
+            "post": {
+                "tags": ["Auth_Patient_Doctor_Chemist"],
+                "summary": "Change password for (patient/doctor/chemist) from website",
+                "description": "This API is use to change password. \n \n old_password : required \n \n new_password : required \n \n Note: Add encrypted data while testing",
+                "operationId": "change-password",
+                "consumes": ["text/plain", "application/json"],
+                "produces": ["text/plain"],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "api-key",
+                        "type": "string",
+                        "required": true,
+                        "default": "X2BKGjwEWj+kiKWhBiJ0yQ==",
+                        "description": "Please add encrypted API KEY"
+                    },
+                    {
+                        "in": "header",
+                        "name": "accept-language",
+                        "type": "string",
+                        "required": true,
+                        "default": "en"
+                    },
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "type": "string",
+                        "required": true,
+                        "default": "AEBTG3YYPJlt+R5Zfp5FMCoRW8/F5bjPOzfIwjN5t6rePM5RYJe68OtPyNUX3tYLzZ9RWAyM30YHMmry+5xQ9LCgfo8K34Ewhq78JKo8qas="
+                    },
+                    {
+                        "in": "body",
+                        "name": "data",
+                        "description": "Change password for (patient/doctor/chemist) from website",
+                        "required": true,
+                        "schema": {
+                            "required": ["old_password", "new_password"],
+                            "properties": {
+                                "old_password": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "test@123!!"
+                                },
+                                "new_password": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "testnewPass@123"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ApiResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/auth/logout": {
+            "get": {
+                "tags": ["Auth_Patient_Doctor_Chemist"],
+                "summary": "Logout (patient/doctor/chemist) from website",
+                "description": "This API is use to logout from website.",
+                "operationId": "logout",
+                "consumes": ["text/plain", "application/json"],
+                "produces": ["text/plain"],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "api-key",
+                        "type": "string",
+                        "required": true,
+                        "default": "X2BKGjwEWj+kiKWhBiJ0yQ==",
+                        "description": "Please add encrypted API KEY"
+                    },
+                    {
+                        "in": "header",
+                        "name": "accept-language",
+                        "type": "string",
+                        "required": true,
+                        "default": "en"
+                    },
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "type": "string",
+                        "required": true,
+                        "default": "AEBTG3YYPJlt+R5Zfp5FMCoRW8/F5bjPOzfIwjN5t6rePM5RYJe68OtPyNUX3tYLzZ9RWAyM30YHMmry+5xQ9LCgfo8K34Ewhq78JKo8qas="
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ApiResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/auth/get-profile": {
+            "get": {
+                "tags": ["Auth_Patient_Doctor_Chemist"],
+                "summary": "Get profile (patient) from website",
+                "description": "This API is use to get user profile",
+                "operationId": "get-profile",
+                "consumes": ["text/plain", "application/json"],
+                "produces": ["text/plain"],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "api-key",
+                        "type": "string",
+                        "required": true,
+                        "default": "X2BKGjwEWj+kiKWhBiJ0yQ==",
+                        "description": "Please add encrypted API KEY"
+                    },
+                    {
+                        "in": "header",
+                        "name": "accept-language",
+                        "type": "string",
+                        "required": true,
+                        "default": "en"
+                    },
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "type": "string",
+                        "required": true,
+                        "default": "AEBTG3YYPJlt+R5Zfp5FMCoRW8/F5bjPOzfIwjN5t6rePM5RYJe68OtPyNUX3tYLzZ9RWAyM30YHMmry+5xQ9LCgfo8K34Ewhq78JKo8qas="
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ApiResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/auth/update-profile": {
+            "post": {
+                "tags": ["Auth_Patient_Doctor_Chemist"],
+                "summary": "Update profile for (Patient)",
+                "description": "This API is use to update profile for (Patient) \n \n first_name : required \n \n middle_name : required \n \n last_name : required \n \n country : required \n \n state : required \n \n city : required \n \n age : optional \n \n  address : optional \n \n is_married : required ( 0 => No , 1 => Yes) \n \n have_children : required ( 0 => No , 1 => Yes) \n \n  how_many_children : required \n \n id_national : required \n \n id_other : required \n \n nationality : required \n \n biometric_id : required \n \n insurance_id : required \n \n profile_image : optional \n \n Note: Add encrypted data while testing",
+                "operationId": "update-profile",
+                "consumes": ["text/plain", "application/json"],
+                "produces": ["text/plain"],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "api-key",
+                        "type": "string",
+                        "required": true,
+                        "default": "X2BKGjwEWj+kiKWhBiJ0yQ==",
+                        "description": "Please add encrypted API KEY"
+                    },
+                    {
+                        "in": "header",
+                        "name": "accept-language",
+                        "type": "string",
+                        "required": true,
+                        "default": "en"
+                    },
+                    {
+                        "in": "body",
+                        "name": "data",
+                        "description": "Update profile for (Patient)",
+                        "required": true,
+                        "schema": {
+                            "required": ["tag"],
+                            "properties": {
+                                "first_name": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "test"
+                                },
+                                "middle_name": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "test"
+                                },
+                                "last_name": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "test"
+                                },
+                                "country": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "India"
+                                },
+                                "state": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "Maharashtra"
+                                },
+                                "city": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "Mumbai"
+                                },
+                                "age": {
+                                    "type": "integer",
+                                    "description": "",
+                                    "example": 20
+                                },
+                                "address": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "New Bridge Ln"
+                                },
+                                "is_married": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "0"
+                                },
+                                "have_children": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "0"
+                                },
+                                "how_many_children": {
+                                    "type": "integer",
+                                    "description": "",
+                                    "example": 0
+                                },
+                                "id_national": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "P247119A"
+                                },
+                                "id_other": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "P2007119A"
+                                },
+                                "nationality": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "Indian"
+                                },
+                                "biometric_id": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "FG1358835"
+                                },
+                                "insurance_id": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "FG13588366"
+                                },
+                                "profile_image": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "test.png"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ApiResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/auth/get-doctors-specialties": {
+            "get": {
+                "tags": ["Auth_Patient_Doctor_Chemist"],
+                "summary": "Get specialities list",
+                "description": "This API is use to get specialities for doctor profile.",
+                "operationId": "get-doctors-specialties",
+                "consumes": ["text/plain", "application/json"],
+                "produces": ["text/plain"],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "api-key",
+                        "type": "string",
+                        "required": true,
+                        "default": "X2BKGjwEWj+kiKWhBiJ0yQ==",
+                        "description": "Please add encrypted API KEY"
+                    },
+                    {
+                        "in": "header",
+                        "name": "accept-language",
+                        "type": "string",
+                        "required": true,
+                        "default": "en"
+                    },
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "type": "string",
+                        "required": true,
+                        "default": "AEBTG3YYPJlt+R5Zfp5FMCoRW8/F5bjPOzfIwjN5t6rePM5RYJe68OtPyNUX3tYLzZ9RWAyM30YHMmry+5xQ9LCgfo8K34Ewhq78JKo8qas="
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ApiResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/auth/get-doctor-profile": {
+            "get": {
+                "tags": ["Auth_Patient_Doctor_Chemist"],
+                "summary": "Get profile (Doctor) from website",
+                "description": "This API is use to get user profile",
+                "operationId": "get-doctor-profile",
+                "consumes": ["text/plain", "application/json"],
+                "produces": ["text/plain"],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "api-key",
+                        "type": "string",
+                        "required": true,
+                        "default": "X2BKGjwEWj+kiKWhBiJ0yQ==",
+                        "description": "Please add encrypted API KEY"
+                    },
+                    {
+                        "in": "header",
+                        "name": "accept-language",
+                        "type": "string",
+                        "required": true,
+                        "default": "en"
+                    },
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "type": "string",
+                        "required": true,
+                        "default": "AEBTG3YYPJlt+R5Zfp5FMCoRW8/F5bjPOzfIwjN5t6rePM5RYJe68OtPyNUX3tYLzZ9RWAyM30YHMmry+5xQ9LCgfo8K34Ewhq78JKo8qas="
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ApiResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/auth/update-doctor-profile": {
+            "post": {
+                "tags": ["Auth_Patient_Doctor_Chemist"],
+                "summary": "Update profile for (Doctor)",
+                "description": "This API is use to update profile for (Doctor) \n \n first_name : required \n \n middle_name : required \n \n last_name : required \n \n country : required \n \n state : required \n \n city : required \n \n age : optional \n \n  address : optional \n \n corporate_reg_no : required \n \n disciplinary_issues : required (1 => Yes , 0 => no) \n \n disciplinary_issues_description : optional \n \n litigations : required (1 => Yes , 0 => no) \n \n litigations_description : optional \n \n financials : optional (uploaded image or PDF name)\n \n website_link : optional \n \n business_type : required (1 => PRIVATE , 2 => PUBLIC) \n \n years_in_business : required \n \n staff_name : optional \n \n profile_image : optional \n \n ceo : required \n \n tax_id : required \n \n departments : required (1 => Yes , 0 => no) \n \n  branches : required (1 => Yes , 0 => no) \n \n license_no : required \n \n license_expiration_date : required (Format : YYYY-MM-DD) \n \n speciality : optional add speciality ids in array \n \n  department_description : optional \n\n  branch_description: optional  \n\n hospital_or_clinic : required \n \n Note: Add encrypted data while testing",
+                "operationId": "update-doctor-profile",
+                "consumes": ["text/plain", "application/json"],
+                "produces": ["text/plain"],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "api-key",
+                        "type": "string",
+                        "required": true,
+                        "default": "X2BKGjwEWj+kiKWhBiJ0yQ==",
+                        "description": "Please add encrypted API KEY"
+                    },
+                    {
+                        "in": "header",
+                        "name": "accept-language",
+                        "type": "string",
+                        "required": true,
+                        "default": "en"
+                    },
+                    {
+                        "in": "body",
+                        "name": "data",
+                        "description": "Update profile for (Doctor)",
+                        "required": true,
+                        "schema": {
+                            "required": [
+                                "first_name",
+                                "middle_name",
+                                "last_name",
+                                "country",
+                                "state",
+                                "city",
+                                "corporate_reg_no",
+                                "disciplinary_issues",
+                                "litigations",
+                                "business_type",
+                                "years_in_business",
+                                "ceo",
+                                "tax_id",
+                                "departments",
+                                "branches",
+                                "license_no",
+                                "license_expiration_date",
+                                "hospital_or_clinic"
+                            ],
+                            "properties": {
+                                "first_name": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "test"
+                                },
+                                "middle_name": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "test"
+                                },
+                                "last_name": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "test"
+                                },
+                                "country": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "India"
+                                },
+                                "state": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "Maharashtra"
+                                },
+                                "city": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "Mumbai"
+                                },
+                                "age": {
+                                    "type": "integer",
+                                    "description": "",
+                                    "example": 20
+                                },
+                                "address": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "New Bridge Ln"
+                                },
+                                "corporate_reg_no": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "12345678-XY"
+                                },
+                                "profile_image": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "test.png"
+                                },
+                                "disciplinary_issues": {
+                                    "type": "integer",
+                                    "description": "",
+                                    "example": 1
+                                },
+                                "disciplinary_issues_description": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "the act, process, or practice of settling a dispute in a court of law"
+                                },
+                                "litigations": {
+                                    "type": "integer",
+                                    "description": "",
+                                    "example": 1
+                                },
+                                "litigations_description": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "the act, process, or practice of settling a dispute in a court of law"
+                                },
+                                "financials": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "test.pdf"
+                                },
+                                "website_link": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "https://monteserenohealth.org/"
+                                },
+                                "business_type": {
+                                    "type": "integer",
+                                    "description": "",
+                                    "example": 1
+                                },
+                                "years_in_business": {
+                                    "type": "integer",
+                                    "description": "",
+                                    "example": 99
+                                },
+                                "staff_name": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "test"
+                                },
+                                "ceo": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "test"
+                                },
+                                "tax_id": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "9685785496PLOJ"
+                                },
+                                "departments": {
+                                    "type": "integer",
+                                    "description": "",
+                                    "example": 1
+                                },
+                                "branches": {
+                                    "type": "integer",
+                                    "description": "",
+                                    "example": 1
+                                },
+                                "license_no": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "POL6985-SWED-54648"
+                                },
+                                "license_expiration_date": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "2026-05-25"
+                                },
+                                "speciality": {
+                                    "type": "enum",
+                                    "description": "",
+                                    "example": [1, 2, 3]
+                                },
+                                "department_description": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "test"
+                                },
+                                "branch_description": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "test"
+                                },
+                                "hospital_or_clinic": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "test"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ApiResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/auth/get-countries": {
+            "get": {
+                "tags": ["Auth_Patient_Doctor_Chemist"],
+                "summary": "Get countries (patient/doctor/chemist)",
+                "description": "This API is use to get user countries",
+                "operationId": "get-countries",
+                "consumes": ["text/plain", "application/json"],
+                "produces": ["text/plain"],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "api-key",
+                        "type": "string",
+                        "required": true,
+                        "default": "X2BKGjwEWj+kiKWhBiJ0yQ==",
+                        "description": "Please add encrypted API KEY"
+                    },
+                    {
+                        "in": "header",
+                        "name": "accept-language",
+                        "type": "string",
+                        "required": true,
+                        "default": "en"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ApiResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/auth/get-page-content": {
+            "post": {
+                "tags": ["Auth_Patient_Doctor_Chemist"],
+                "summary": "Get page content for Privacy Policy, Terms & Conditions & About us",
+                "description": "This API is use to get page content for Privacy Policy, Terms & Conditions & About us \n \n tag : required | in (PRIVACY_POLICY , TERMS_CONDITIONS , ABOUT_US)",
+                "operationId": "get-page-content",
+                "consumes": ["text/plain", "application/json"],
+                "produces": ["text/plain"],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "api-key",
+                        "type": "string",
+                        "required": true,
+                        "default": "X2BKGjwEWj+kiKWhBiJ0yQ==",
+                        "description": "Please add encrypted API KEY"
+                    },
+                    {
+                        "in": "header",
+                        "name": "accept-language",
+                        "type": "string",
+                        "required": true,
+                        "default": "en"
+                    },
+                    {
+                        "in": "body",
+                        "name": "data",
+                        "description": "Get page content for Privacy Policy, Terms & Conditions & About us",
+                        "required": true,
+                        "schema": {
+                            "required": ["tag"],
+                            "properties": {
+                                "tag": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "PRIVACY_POLICY"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ApiResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/patient/doctors-list": {
+            "post": {
+                "tags": ["Patient"],
+                "summary": "Doctors list api for zoom connect",
+                "description": "This API is get doctors list api for zoom connect. \n \n page : required  \n \n record_count : required \n \n Note: Add encrypted data while testing",
+                "operationId": "doctors-list",
+                "consumes": ["text/plain", "application/json"],
+                "produces": ["text/plain"],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "api-key",
+                        "type": "string",
+                        "required": true,
+                        "default": "X2BKGjwEWj+kiKWhBiJ0yQ==",
+                        "description": "Please add encrypted API KEY"
+                    },
+                    {
+                        "in": "header",
+                        "name": "accept-language",
+                        "type": "string",
+                        "required": true,
+                        "default": "en"
+                    },
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "type": "string",
+                        "required": true,
+                        "default": "AEBTG3YYPJlt+R5Zfp5FMCoRW8/F5bjPOzfIwjN5t6rePM5RYJe68OtPyNUX3tYLzZ9RWAyM30YHMmry+5xQ9LCgfo8K34Ewhq78JKo8qas="
+                    },
+                    {
+                        "in": "body",
+                        "name": "data",
+                        "description": "Doctors list api for zoom connect",
+                        "required": true,
+                        "schema": {
+                            "required": ["page", "record_count"],
+                            "properties": {
+                                "page": {
+                                    "type": "integer",
+                                    "description": "",
+                                    "example": 1
+                                },
+                                "record_count": {
+                                    "type": "integer",
+                                    "description": "",
+                                    "example": 10
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ApiResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/isabel/age-groups-pro": {
+            "get": {
+                "tags": ["Isabel"],
+                "summary": "All the age groups present in the Isabel database (For Doctor)",
+                "description": "This API is use for get list of All the age groups present in the Isabel (For Doctor).",
+                "operationId": "age-groups-pro",
+                "consumes": ["text/plain", "application/json"],
+                "produces": ["text/plain"],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "api-key",
+                        "type": "string",
+                        "required": true,
+                        "default": "X2BKGjwEWj+kiKWhBiJ0yQ==",
+                        "description": "Please add encrypted API KEY"
+                    },
+                    {
+                        "in": "header",
+                        "name": "accept-language",
+                        "type": "string",
+                        "required": true,
+                        "default": "en"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ApiResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/isabel/age-groups-sc": {
+            "get": {
+                "tags": ["Isabel"],
+                "summary": "All the age groups present in the Isabel database (For Patient)",
+                "description": "This API is use for get list of All the age groups present in the Isabel (For Patient).",
+                "operationId": "age-groups-sc",
+                "consumes": ["text/plain", "application/json"],
+                "produces": ["text/plain"],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "api-key",
+                        "type": "string",
+                        "required": true,
+                        "default": "X2BKGjwEWj+kiKWhBiJ0yQ==",
+                        "description": "Please add encrypted API KEY"
+                    },
+                    {
+                        "in": "header",
+                        "name": "accept-language",
+                        "type": "string",
+                        "required": true,
+                        "default": "en"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ApiResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/isabel/get-age-groups-pro": {
+            "get": {
+                "tags": ["Isabel"],
+                "summary": "Get age groups list (For doctors)",
+                "description": "This API is use for get age groups list for doctor role",
+                "operationId": "get-age-groups-pro",
+                "consumes": ["text/plain", "application/json"],
+                "produces": ["text/plain"],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "api-key",
+                        "type": "string",
+                        "required": true,
+                        "default": "X2BKGjwEWj+kiKWhBiJ0yQ==",
+                        "description": "Please add encrypted API KEY"
+                    },
+                    {
+                        "in": "header",
+                        "name": "accept-language",
+                        "type": "string",
+                        "required": true,
+                        "default": "en"
+                    },
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "type": "string",
+                        "required": true,
+                        "default": "AEBTG3YYPJlt+R5Zfp5FMCoRW8/F5bjPOzfIwjN5t6rePM5RYJe68OtPyNUX3tYLzZ9RWAyM30YHMmry+5xQ9LCgfo8K34Ewhq78JKo8qas="
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ApiResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/isabel/get-age-groups-sc": {
+            "get": {
+                "tags": ["Isabel"],
+                "summary": "Get age groups list (For Patient)",
+                "description": "This API is use for get age groups list for patient role",
+                "operationId": "get-age-groups-sc",
+                "consumes": ["text/plain", "application/json"],
+                "produces": ["text/plain"],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "api-key",
+                        "type": "string",
+                        "required": true,
+                        "default": "X2BKGjwEWj+kiKWhBiJ0yQ==",
+                        "description": "Please add encrypted API KEY"
+                    },
+                    {
+                        "in": "header",
+                        "name": "accept-language",
+                        "type": "string",
+                        "required": true,
+                        "default": "en"
+                    },
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "type": "string",
+                        "required": true,
+                        "default": "AEBTG3YYPJlt+R5Zfp5FMCoRW8/F5bjPOzfIwjN5t6rePM5RYJe68OtPyNUX3tYLzZ9RWAyM30YHMmry+5xQ9LCgfo8K34Ewhq78JKo8qas="
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ApiResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/isabel/regions-pro": {
+            "get": {
+                "tags": ["Isabel"],
+                "summary": "All the regions present in the Isabel database (For Doctor)",
+                "description": "This API is use for get list of All the regions present in the Isabel database (For Doctor)",
+                "operationId": "regions-pro",
+                "consumes": ["text/plain", "application/json"],
+                "produces": ["text/plain"],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "api-key",
+                        "type": "string",
+                        "required": true,
+                        "default": "X2BKGjwEWj+kiKWhBiJ0yQ==",
+                        "description": "Please add encrypted API KEY"
+                    },
+                    {
+                        "in": "header",
+                        "name": "accept-language",
+                        "type": "string",
+                        "required": true,
+                        "default": "en"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ApiResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/isabel/regions-sc": {
+            "get": {
+                "tags": ["Isabel"],
+                "summary": "All the regions present in the Isabel database (For Patient)",
+                "description": "This API is use for get list of All the regions present in the Isabel database (For Patient)",
+                "operationId": "regions-sc",
+                "consumes": ["text/plain", "application/json"],
+                "produces": ["text/plain"],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "api-key",
+                        "type": "string",
+                        "required": true,
+                        "default": "X2BKGjwEWj+kiKWhBiJ0yQ==",
+                        "description": "Please add encrypted API KEY"
+                    },
+                    {
+                        "in": "header",
+                        "name": "accept-language",
+                        "type": "string",
+                        "required": true,
+                        "default": "en"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ApiResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/isabel/get-regions-pro": {
+            "get": {
+                "tags": ["Isabel"],
+                "summary": "Get regions list (For Doctor)",
+                "description": "This API is use for get regions list (For Doctor)",
+                "operationId": "get-regions-pro",
+                "consumes": ["text/plain", "application/json"],
+                "produces": ["text/plain"],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "api-key",
+                        "type": "string",
+                        "required": true,
+                        "default": "X2BKGjwEWj+kiKWhBiJ0yQ==",
+                        "description": "Please add encrypted API KEY"
+                    },
+                    {
+                        "in": "header",
+                        "name": "accept-language",
+                        "type": "string",
+                        "required": true,
+                        "default": "en"
+                    },
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "type": "string",
+                        "required": true,
+                        "default": "AEBTG3YYPJlt+R5Zfp5FMCoRW8/F5bjPOzfIwjN5t6rePM5RYJe68OtPyNUX3tYLzZ9RWAyM30YHMmry+5xQ9LCgfo8K34Ewhq78JKo8qas="
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ApiResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/isabel/get-regions-sc": {
+            "get": {
+                "tags": ["Isabel"],
+                "summary": "Get regions list (For Patient)",
+                "description": "This API is use for get regions list (For Patient)",
+                "operationId": "get-regions-sc",
+                "consumes": ["text/plain", "application/json"],
+                "produces": ["text/plain"],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "api-key",
+                        "type": "string",
+                        "required": true,
+                        "default": "X2BKGjwEWj+kiKWhBiJ0yQ==",
+                        "description": "Please add encrypted API KEY"
+                    },
+                    {
+                        "in": "header",
+                        "name": "accept-language",
+                        "type": "string",
+                        "required": true,
+                        "default": "en"
+                    },
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "type": "string",
+                        "required": true,
+                        "default": "AEBTG3YYPJlt+R5Zfp5FMCoRW8/F5bjPOzfIwjN5t6rePM5RYJe68OtPyNUX3tYLzZ9RWAyM30YHMmry+5xQ9LCgfo8K34Ewhq78JKo8qas="
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ApiResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/isabel/pregnancy-options-pro": {
+            "get": {
+                "tags": ["Isabel"],
+                "summary": "All the pregnancy options in the Isabel database (For Doctor)",
+                "description": "This API is use for get list of All the pregnancy options present in the Isabel database (For Doctor)",
+                "operationId": "pregnancy-options-pro",
+                "consumes": ["text/plain", "application/json"],
+                "produces": ["text/plain"],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "api-key",
+                        "type": "string",
+                        "required": true,
+                        "default": "X2BKGjwEWj+kiKWhBiJ0yQ==",
+                        "description": "Please add encrypted API KEY"
+                    },
+                    {
+                        "in": "header",
+                        "name": "accept-language",
+                        "type": "string",
+                        "required": true,
+                        "default": "en"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ApiResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/isabel/pregnancy-options-sc": {
+            "get": {
+                "tags": ["Isabel"],
+                "summary": "All the pregnancy options in the Isabel database (For Patient)",
+                "description": "This API is use for get list of All the pregnancy options present in the Isabel database (For Patient)",
+                "operationId": "pregnancy-options-sc",
+                "consumes": ["text/plain", "application/json"],
+                "produces": ["text/plain"],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "api-key",
+                        "type": "string",
+                        "required": true,
+                        "default": "X2BKGjwEWj+kiKWhBiJ0yQ==",
+                        "description": "Please add encrypted API KEY"
+                    },
+                    {
+                        "in": "header",
+                        "name": "accept-language",
+                        "type": "string",
+                        "required": true,
+                        "default": "en"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ApiResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/isabel/get-pregnancy-options-pro": {
+            "get": {
+                "tags": ["Isabel"],
+                "summary": "Get pregnancy-options list (For Doctor)",
+                "description": "This API is use for get pregnancy-options list",
+                "operationId": "get-pregnancy-options-pro",
+                "consumes": ["text/plain", "application/json"],
+                "produces": ["text/plain"],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "api-key",
+                        "type": "string",
+                        "required": true,
+                        "default": "X2BKGjwEWj+kiKWhBiJ0yQ==",
+                        "description": "Please add encrypted API KEY"
+                    },
+                    {
+                        "in": "header",
+                        "name": "accept-language",
+                        "type": "string",
+                        "required": true,
+                        "default": "en"
+                    },
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "type": "string",
+                        "required": true,
+                        "default": "AEBTG3YYPJlt+R5Zfp5FMCoRW8/F5bjPOzfIwjN5t6rePM5RYJe68OtPyNUX3tYLzZ9RWAyM30YHMmry+5xQ9LCgfo8K34Ewhq78JKo8qas="
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ApiResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/isabel/get-pregnancy-options-sc": {
+            "get": {
+                "tags": ["Isabel"],
+                "summary": "Get pregnancy-options list (For patient)",
+                "description": "This API is use for get pregnancy-options list",
+                "operationId": "get-pregnancy-options-sc",
+                "consumes": ["text/plain", "application/json"],
+                "produces": ["text/plain"],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "api-key",
+                        "type": "string",
+                        "required": true,
+                        "default": "X2BKGjwEWj+kiKWhBiJ0yQ==",
+                        "description": "Please add encrypted API KEY"
+                    },
+                    {
+                        "in": "header",
+                        "name": "accept-language",
+                        "type": "string",
+                        "required": true,
+                        "default": "en"
+                    },
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "type": "string",
+                        "required": true,
+                        "default": "AEBTG3YYPJlt+R5Zfp5FMCoRW8/F5bjPOzfIwjN5t6rePM5RYJe68OtPyNUX3tYLzZ9RWAyM30YHMmry+5xQ9LCgfo8K34Ewhq78JKo8qas="
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ApiResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/isabel/ranked-differential-diagnoses-pro": {
+            "post": {
+                "tags": ["Isabel"],
+                "summary": "Get diagnoses checklist (For Doctor)",
+                "description": "This API is use for get diagnoses checklist \n \n specialties : required (28 for differential diagnosis, 42 for causative drugs) \n \n dob : required (Format YYYYMMDD) \n \n sex : required (m for male & f for female) \n \n pregnant : required (n for “Not Pregnant”, y for “Pregnant” & blank for “Not Specified”) \n \n region : required \n \n querytext : required (symptoms comma separated “,”. E.g. – fever,cold,nausea) \n \n Note : Please add encrypted data",
+                "operationId": "ranked-differential-diagnoses-pro",
+                "consumes": ["text/plain", "application/json"],
+                "produces": ["text/plain"],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "api-key",
+                        "type": "string",
+                        "required": true,
+                        "default": "X2BKGjwEWj+kiKWhBiJ0yQ==",
+                        "description": "Please add encrypted API KEY"
+                    },
+                    {
+                        "in": "header",
+                        "name": "accept-language",
+                        "type": "string",
+                        "required": true,
+                        "default": "en"
+                    },
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "type": "string",
+                        "required": true,
+                        "default": "AEBTG3YYPJlt+R5Zfp5FMCoRW8/F5bjPOzfIwjN5t6rePM5RYJe68OtPyNUX3tYLzZ9RWAyM30YHMmry+5xQ9LCgfo8K34Ewhq78JKo8qas="
+                    },
+                    {
+                        "in": "body",
+                        "name": "data",
+                        "description": "Change password for (patient/doctor/chemist) from website",
+                        "required": true,
+                        "schema": {
+                            "required": ["specialties", "dob", "sex"],
+                            "properties": {
+                                "specialties": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "28"
+                                },
+                                "dob": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "19850818"
+                                },
+                                "sex": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "m"
+                                },
+                                "pregnant": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "n"
+                                },
+                                "region": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "1"
+                                },
+                                "querytext": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "hypertension,cardiomyopathy,nausa"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ApiResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/isabel/ranked-differential-diagnoses-sc": {
+            "post": {
+                "tags": ["Isabel"],
+                "summary": "Get diagnoses checklist (For Patient)",
+                "description": "This API is use for get diagnoses checklist \n \n specialties : required (28 for differential diagnosis, 42 for causative drugs) \n \n dob : required (Format YYYYMMDD) \n \n sex : required (m for male & f for female) \n \n pregnant : required (n for “Not Pregnant”, y for “Pregnant” & blank for “Not Specified”) \n \n region : required \n \n querytext : required (symptoms comma separated “,”. E.g. – fever,cold,nausea) \n \n Note : Please add encrypted data",
+                "operationId": "ranked-differential-diagnoses-sc",
+                "consumes": ["text/plain", "application/json"],
+                "produces": ["text/plain"],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "api-key",
+                        "type": "string",
+                        "required": true,
+                        "default": "X2BKGjwEWj+kiKWhBiJ0yQ==",
+                        "description": "Please add encrypted API KEY"
+                    },
+                    {
+                        "in": "header",
+                        "name": "accept-language",
+                        "type": "string",
+                        "required": true,
+                        "default": "en"
+                    },
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "type": "string",
+                        "required": true,
+                        "default": "AEBTG3YYPJlt+R5Zfp5FMCoRW8/F5bjPOzfIwjN5t6rePM5RYJe68OtPyNUX3tYLzZ9RWAyM30YHMmry+5xQ9LCgfo8K34Ewhq78JKo8qas="
+                    },
+                    {
+                        "in": "body",
+                        "name": "data",
+                        "description": "Change password for (patient/doctor/chemist) from website",
+                        "required": true,
+                        "schema": {
+                            "required": ["specialties", "dob", "sex"],
+                            "properties": {
+                                "specialties": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "28"
+                                },
+                                "dob": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "19850818"
+                                },
+                                "sex": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "m"
+                                },
+                                "pregnant": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "n"
+                                },
+                                "region": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "1"
+                                },
+                                "querytext": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "hypertension,cardiomyopathy,nausa"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ApiResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/isabel/get-generated-reports": {
+            "post": {
+                "tags": ["Isabel"],
+                "summary": "Get generated report of user for isabel & binah",
+                "description": "This API is use for get generated report of user for isabel & binah \n \n isabel_report_id : required \n \n binah_report_id : optional \n \n Note : Please add encrypted data",
+                "operationId": "get-generated-reports",
+                "consumes": ["text/plain", "application/json"],
+                "produces": ["text/plain"],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "api-key",
+                        "type": "string",
+                        "required": true,
+                        "default": "X2BKGjwEWj+kiKWhBiJ0yQ==",
+                        "description": "Please add encrypted API KEY"
+                    },
+                    {
+                        "in": "header",
+                        "name": "accept-language",
+                        "type": "string",
+                        "required": true,
+                        "default": "en"
+                    },
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "type": "string",
+                        "required": true,
+                        "default": "AEBTG3YYPJlt+R5Zfp5FMCoRW8/F5bjPOzfIwjN5t6rePM5RYJe68OtPyNUX3tYLzZ9RWAyM30YHMmry+5xQ9LCgfo8K34Ewhq78JKo8qas="
+                    },
+                    {
+                        "in": "body",
+                        "name": "data",
+                        "description": "Change password for (patient/doctor/chemist) from website",
+                        "required": true,
+                        "schema": {
+                            "required": ["isabel_report_id"],
+                            "properties": {
+                                "isabel_report_id": {
+                                    "type": "integer",
+                                    "description": "",
+                                    "example": 2
+                                },
+                                "binah_report_id": {
+                                    "type": "integer",
+                                    "description": "",
+                                    "example": 6
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ApiResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/feedback/send": {
+            "post": {
+                "tags": ["Feedback"],
+                "summary": "Feedback for patient & doctor",
+                "description": "This API is use for sign up Application. \n \n user_type : required  , (1 => patient, 2 => doctor)\n \n first_name : required \n \n middle_name : required \n \n last_name : required \n \n email1 : required | email \n \n email2 : required | email \n \n phone_no1 : required \n \n phone_no2 : required \n \n country : required \n \n state : required \n \n city : required \n \n date : required \n \n overall_rating : required \n \n use_aiva : required | in (0 => No , 1 => Yes)\n \n ease_of_use : required \n \n recommend_aiva : required | in (0 => No , 1 => Yes) \n \n like_aiva_to_do : optional \n \n comments : optional \n \n Note: Add encrypted data while testing",
+                "operationId": "send",
+                "consumes": ["text/plain", "application/json"],
+                "produces": ["text/plain"],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "api-key",
+                        "type": "string",
+                        "required": true,
+                        "default": "X2BKGjwEWj+kiKWhBiJ0yQ==",
+                        "description": "Please add encrypted API KEY"
+                    },
+                    {
+                        "in": "header",
+                        "name": "accept-language",
+                        "type": "string",
+                        "required": true,
+                        "default": "en"
+                    },
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "type": "string",
+                        "required": true,
+                        "default": "AEBTG3YYPJlt+R5Zfp5FMCoRW8/F5bjPOzfIwjN5t6rePM5RYJe68OtPyNUX3tYLzZ9RWAyM30YHMmry+5xQ9LCgfo8K34Ewhq78JKo8qas="
+                    },
+                    {
+                        "in": "body",
+                        "name": "data",
+                        "description": "Feedback from patient & doctor",
+                        "required": true,
+                        "schema": {
+                            "required": [
+                                "user_type",
+                                "first_name",
+                                "middle_name",
+                                "last_name",
+                                "email1",
+                                "email2",
+                                "phone_no1",
+                                "phone_no2",
+                                "country",
+                                "state",
+                                "city",
+                                "date",
+                                "overall_rating",
+                                "use_aiva",
+                                "ease_of_use",
+                                "recommend_aiva"
+                            ],
+                            "properties": {
+                                "user_type": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "1"
+                                },
+                                "first_name": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "test user"
+                                },
+                                "middle_name": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "test user"
+                                },
+                                "last_name": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "test user"
+                                },
+                                "email1": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "testuser12@gmail.com"
+                                },
+                                "email2": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "testuser123@gmail.com"
+                                },
+                                "phone_no1": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "1234567890"
+                                },
+                                "phone_no2": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "1234567891"
+                                },
+                                "country": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "Usa"
+                                },
+                                "state": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "California"
+                                },
+                                "city": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "New York"
+                                },
+                                "date": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "2022-05-13"
+                                },
+                                "overall_rating": {
+                                    "type": "integer",
+                                    "description": "",
+                                    "example": 3
+                                },
+                                "use_aiva": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "1"
+                                },
+                                "ease_of_use": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "Excellent"
+                                },
+                                "recommend_aiva": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "0"
+                                },
+                                "like_aiva_to_do": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "Make my Appointments"
+                                },
+                                "comments": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "This was good."
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ApiResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/gpt/gpt-get-response": {
+            "post": {
+                "tags": ["GPT4"],
+                "summary": "Get chat gpt4 response",
+                "description": "This API is use for get response from gpt4. \n \n prompt : required \n \n type : required ( Add 0 => other , 1 => POC, 2 => Docsumo, 3 => Isable, 4 => Binah, 5 => zoom ) \n \n Note : Please add encrypted data",
+                "operationId": "gpt-get-response",
+                "consumes": ["text/plain", "application/json"],
+                "produces": ["text/plain"],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "api-key",
+                        "type": "string",
+                        "required": true,
+                        "default": "X2BKGjwEWj+kiKWhBiJ0yQ==",
+                        "description": "Please add encrypted API KEY"
+                    },
+                    {
+                        "in": "header",
+                        "name": "accept-language",
+                        "type": "string",
+                        "required": true,
+                        "default": "en"
+                    },
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "type": "string",
+                        "required": true,
+                        "default": "AEBTG3YYPJlt+R5Zfp5FMCoRW8/F5bjPOzfIwjN5t6rePM5RYJe68OtPyNUX3tYLzZ9RWAyM30YHMmry+5xQ9LCgfo8K34Ewhq78JKo8qas="
+                    },
+                    {
+                        "in": "body",
+                        "name": "data",
+                        "description": "Login to admin panel",
+                        "required": true,
+                        "schema": {
+                            "properties": {
+                                "prompt": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "Transalate English to French 'Hello world'"
+                                },
+                                "type": {
+                                    "type": "integer",
+                                    "description": "",
+                                    "example": 1
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ApiResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/gpt/gpt-image-generations": {
+            "post": {
+                "tags": ["GPT4"],
+                "summary": "Get chat gpt4 response",
+                "description": "This API is use for get response from gpt4. \n \n prompt : required \n \n n = 5 \n \n size required",
+                "operationId": "gpt-image-generations",
+                "consumes": ["text/plain", "application/json"],
+                "produces": ["text/plain"],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "api-key",
+                        "type": "string",
+                        "required": true,
+                        "default": "X2BKGjwEWj+kiKWhBiJ0yQ==",
+                        "description": "Please add encrypted API KEY"
+                    },
+                    {
+                        "in": "body",
+                        "name": "data",
+                        "description": "Login to admin panel",
+                        "required": true,
+                        "schema": {
+                            "properties": {
+                                "prompt": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "Google logo"
+                                },
+                                "n": {
+                                    "type": "integer",
+                                    "description": "",
+                                    "example": 5
+                                },
+                                "size": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "1024x1024"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ApiResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/calendy/get-calendy-access-token": {
+            "get": {
+                "tags": ["Calendy"],
+                "summary": "Get access token of calendy",
+                "description": "This API is use for get access token of calendy. \n \n Please add encrypted API KEY",
+                "operationId": "get-calendy-access-token",
+                "consumes": ["text/plain", "application/json"],
+                "produces": ["text/plain"],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "api-key",
+                        "type": "string",
+                        "required": true,
+                        "default": "X2BKGjwEWj+kiKWhBiJ0yQ==",
+                        "description": "Please add encrypted API KEY"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ApiResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/docsumo/docsumo-user-details": {
+            "get": {
+                "tags": ["Docsumo"],
+                "summary": "Get docsumo user detail",
+                "description": "This API is use for get docsumo user detail.",
+                "operationId": "docsumo-user-details",
+                "consumes": ["text/plain", "application/json"],
+                "produces": ["text/plain"],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "api-key",
+                        "type": "string",
+                        "required": true,
+                        "default": "X2BKGjwEWj+kiKWhBiJ0yQ==",
+                        "description": "Get docsumo user detail"
+                    },
+                    {
+                        "in": "header",
+                        "name": "accept-language",
+                        "type": "string",
+                        "required": true,
+                        "default": "en"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ApiResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/docsumo/upload-document-for-text-convert": {
+            "post": {
+                "tags": ["Docsumo"],
+                "summary": "Upload image,pdf files to convert into text using docsumo",
+                "description": "This API is use for upload image,pdf files to convert into text using docsumo. \n \n file : required \n \n type : required | in : `others__Kagrz__zByyE` (For patient's prescription document upload the type is `others__Kagrz__zByyE`) \n \n file_type : required , file_type : Add 'url' to this field \n \n Note: Add encrypted data while testing",
+                "operationId": "upload-document-for-text-convert",
+                "consumes": ["text/plain", "application/json"],
+                "produces": ["text/plain"],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "api-key",
+                        "type": "string",
+                        "required": true,
+                        "default": "X2BKGjwEWj+kiKWhBiJ0yQ==",
+                        "description": "Please add encrypted API KEY"
+                    },
+                    {
+                        "in": "header",
+                        "name": "accept-language",
+                        "type": "string",
+                        "required": true,
+                        "default": "en"
+                    },
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "type": "string",
+                        "required": true,
+                        "default": "AEBTG3YYPJlt+R5Zfp5FMCoRW8/F5bjPOzfIwjN5t6rePM5RYJe68OtPyNUX3tYLzZ9RWAyM30YHMmry+5xQ9LCgfo8K34Ewhq78JKo8qas="
+                    },
+                    {
+                        "in": "body",
+                        "name": "data",
+                        "description": "Login to admin panel",
+                        "required": true,
+                        "schema": {
+                            "required": ["file", "type", "file_type"],
+                            "properties": {
+                                "file": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "https://msh-dev.s3.amazonaws.com/test-docsumo-images/shipping-bill.png"
+                                },
+                                "type": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "others__Kagrz__zByyE"
+                                },
+                                "file_type": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "url"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ApiResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/docsumo/extract-data": {
+            "post": {
+                "tags": ["Docsumo"],
+                "summary": "Extract docsumo document data",
+                "description": "This API is use for extract docsumo document data. \n \n doc_id : required \n \n  Note: Add encrypted data while testing",
+                "operationId": "extract-data",
+                "consumes": ["text/plain", "application/json"],
+                "produces": ["text/plain"],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "api-key",
+                        "type": "string",
+                        "required": true,
+                        "default": "X2BKGjwEWj+kiKWhBiJ0yQ==",
+                        "description": "Please add encrypted API KEY"
+                    },
+                    {
+                        "in": "header",
+                        "name": "accept-language",
+                        "type": "string",
+                        "required": true,
+                        "default": "en"
+                    },
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "type": "string",
+                        "required": true,
+                        "default": "AEBTG3YYPJlt+R5Zfp5FMCoRW8/F5bjPOzfIwjN5t6rePM5RYJe68OtPyNUX3tYLzZ9RWAyM30YHMmry+5xQ9LCgfo8K34Ewhq78JKo8qas="
+                    },
+                    {
+                        "in": "body",
+                        "name": "data",
+                        "description": "Docsumo extract data",
+                        "required": true,
+                        "schema": {
+                            "required": ["doc_id"],
+                            "properties": {
+                                "doc_id": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "0b4c72143807404c8f427bdf71f71445"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ApiResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/docsumo/store-docsumo-data": {
+            "post": {
+                "tags": ["Docsumo"],
+                "summary": "Upload image,pdf files to convert into text using docsumo",
+                "description": "This API is use for upload image,pdf files to convert into text using docsumo. \n \n file : required \n \n type : required | in : `others__Kagrz__zByyE` (For patient's prescription document upload the type is `others__Kagrz__zByyE`) \n \n file_type : required , file_type : Add 'url' to this field \n  report_type : required (1=> paper record , 2 => E-record , 3 => Voice camera record) \n name_of_record : required  \n permission_code : required \n \n Note: Add encrypted data while testing",
+                "operationId": "store-docsumo-data",
+                "consumes": ["text/plain", "application/json"],
+                "produces": ["text/plain"],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "api-key",
+                        "type": "string",
+                        "required": true,
+                        "default": "X2BKGjwEWj+kiKWhBiJ0yQ==",
+                        "description": "Please add encrypted API KEY"
+                    },
+                    {
+                        "in": "header",
+                        "name": "accept-language",
+                        "type": "string",
+                        "required": true,
+                        "default": "en"
+                    },
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "type": "string",
+                        "required": true,
+                        "default": "AEBTG3YYPJlt+R5Zfp5FMCoRW8/F5bjPOzfIwjN5t6rePM5RYJe68OtPyNUX3tYLzZ9RWAyM30YHMmry+5xQ9LCgfo8K34Ewhq78JKo8qas="
+                    },
+                    {
+                        "in": "body",
+                        "name": "data",
+                        "description": "Login to admin panel",
+                        "required": true,
+                        "schema": {
+                            "required": [
+                                "file",
+                                "type",
+                                "file_type",
+                                "report_type",
+                                "name_of_record",
+                                "permission_code"
+                            ],
+                            "properties": {
+                                "file": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "shipping-bill.png"
+                                },
+                                "type": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "others__Kagrz__zByyE"
+                                },
+                                "file_type": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "url"
+                                },
+                                "name_of_record": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "name"
+                                },
+                                "permission_code": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "cpde"
+                                },
+                                "report_type": {
+                                    "type": "integer",
+                                    "description": "",
+                                    "example": 1
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ApiResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/zoom/get-zoom-access-token": {
+            "get": {
+                "tags": ["Zoom"],
+                "summary": "Get access token",
+                "description": "This API is use to get access token for zoom",
+                "operationId": "get-zoom-access-token",
+                "consumes": ["text/plain", "application/json"],
+                "produces": ["text/plain"],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "api-key",
+                        "type": "string",
+                        "required": true,
+                        "default": "X2BKGjwEWj+kiKWhBiJ0yQ==",
+                        "description": "Please add encrypted API KEY"
+                    },
+                    {
+                        "in": "header",
+                        "name": "accept-language",
+                        "type": "string",
+                        "required": true,
+                        "default": "en"
+                    },
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "type": "string",
+                        "required": true,
+                        "default": "AEBTG3YYPJlt+R5Zfp5FMCoRW8/F5bjPOzfIwjN5t6rePM5RYJe68OtPyNUX3tYLzZ9RWAyM30YHMmry+5xQ9LCgfo8K34Ewhq78JKo8qas="
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ApiResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/zoom/create-zoom-meeting": {
+            "post": {
+                "tags": ["Zoom"],
+                "summary": "Create zoom meeting",
+                "description": "This API is use to reate zoom meeting \n \n topic : required",
+                "operationId": "create-zoom-meeting",
+                "consumes": ["text/plain", "application/json"],
+                "produces": ["text/plain"],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "api-key",
+                        "type": "string",
+                        "required": true,
+                        "default": "X2BKGjwEWj+kiKWhBiJ0yQ==",
+                        "description": "Please add encrypted API KEY"
+                    },
+                    {
+                        "in": "header",
+                        "name": "accept-language",
+                        "type": "string",
+                        "required": true,
+                        "default": "en"
+                    },
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "type": "string",
+                        "required": true,
+                        "default": "AEBTG3YYPJlt+R5Zfp5FMCoRW8/F5bjPOzfIwjN5t6rePM5RYJe68OtPyNUX3tYLzZ9RWAyM30YHMmry+5xQ9LCgfo8K34Ewhq78JKo8qas="
+                    },
+                    {
+                        "in": "body",
+                        "name": "data",
+                        "description": "Create zoom meeting",
+                        "required": true,
+                        "schema": {
+                            "required": ["topic"],
+                            "properties": {
+                                "topic": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "Discuss about headech"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ApiResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/zoom/generate-zoom-signature": {
+            "get": {
+                "tags": ["Zoom"],
+                "summary": "Generate JWT token for zoom signature",
+                "description": "This API is use to generate JWT token for zoom signature",
+                "operationId": "generate-zoom-signature",
+                "consumes": ["text/plain", "application/json"],
+                "produces": ["text/plain"],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "api-key",
+                        "type": "string",
+                        "required": true,
+                        "default": "X2BKGjwEWj+kiKWhBiJ0yQ==",
+                        "description": "Please add encrypted API KEY"
+                    },
+                    {
+                        "in": "header",
+                        "name": "accept-language",
+                        "type": "string",
+                        "required": true,
+                        "default": "en"
+                    },
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "type": "string",
+                        "required": true,
+                        "default": "AEBTG3YYPJlt+R5Zfp5FMCoRW8/F5bjPOzfIwjN5t6rePM5RYJe68OtPyNUX3tYLzZ9RWAyM30YHMmry+5xQ9LCgfo8K34Ewhq78JKo8qas="
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ApiResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/zoom/signature-verify-to-join": {
+            "post": {
+                "tags": ["Zoom"],
+                "summary": "Verify zoom signature",
+                "description": "This API is use to verify zoom signature \n \n meeting_number : required \n \n user_name : required \n \n api_key : required \n \n signature : required",
+                "operationId": "signature-verify-to-join",
+                "consumes": ["text/plain", "application/json"],
+                "produces": ["text/plain"],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "api-key",
+                        "type": "string",
+                        "required": true,
+                        "default": "X2BKGjwEWj+kiKWhBiJ0yQ==",
+                        "description": "Please add encrypted API KEY"
+                    },
+                    {
+                        "in": "header",
+                        "name": "accept-language",
+                        "type": "string",
+                        "required": true,
+                        "default": "en"
+                    },
+                    {
+                        "in": "header",
+                        "name": "token",
+                        "type": "string",
+                        "required": true,
+                        "default": "AEBTG3YYPJlt+R5Zfp5FMCoRW8/F5bjPOzfIwjN5t6rePM5RYJe68OtPyNUX3tYLzZ9RWAyM30YHMmry+5xQ9LCgfo8K34Ewhq78JKo8qas="
+                    },
+                    {
+                        "in": "body",
+                        "name": "data",
+                        "description": "Verify zoom signature",
+                        "required": true,
+                        "schema": {
+                            "required": ["meeting_number", "user_name", "api_key", "signature"],
+                            "properties": {
+                                "meeting_number": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "1231232asdasdasdasd"
+                                },
+                                "user_name": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "test@123"
+                                },
+                                "api_key": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "1231232asdasdasdasd"
+                                },
+                                "signature": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "1231232asdasdasdasd"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ApiResponse"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "ApiResponse": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "data": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "externalDocs": {
+        "description": "Encyption Decryption Link",
+        "url": "http://44.219.88.174/API/enc_dec.html"
+    }
+}

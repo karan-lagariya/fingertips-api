@@ -1,0 +1,91 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "TodoTrip PLATFORM ADMIN PANEL DOCUMENT. \n \n API-KEY:- wgXYoVETr8IVNapTL3KBLg== \n \n ENC-KEY:- FqdX621SQQ5XUCCQLe1uvaU7K8qqeZF5 \n \n ENC-VAL:- Le1uvaU7K8qqeZF5 \n \n Accept-Language: en \n \n TOKEN: [pass encyption value]",
+        "version": "1.0.0",
+        "title": "TodoTrip Admin Api Document"
+    },
+    "host": "localhost:8001",
+    "basePath": "/api/v1",
+    "schemes": ["http"],
+
+    "paths": {
+        "/login": {
+            "post": {
+                "tags": ["Authenticate"],
+                "summary": "Login to admin panel",
+                "description": "This API is use for login in Admin panel. \n \n email : required \n \n password : required \n \n Note: Add encrypted data while testing",
+                "operationId": "login",
+                "consumes": ["text/plain", "application/json"],
+                "produces": ["text/plain"],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "api-key",
+                        "type": "string",
+                        "required": true,
+                        "default": "wgXYoVETr8IVNapTL3KBLg==",
+                        "description": "Please add encrypted API KEY"
+                    },
+                    {
+                        "in": "header",
+                        "name": "accept-language",
+                        "type": "string",
+                        "required": true,
+                        "default": "en"
+                    },
+                    {
+                        "in": "body",
+                        "name": "data",
+                        "description": "Login to admin panel",
+                        "required": true,
+                        "schema": {
+                            "required": ["email", "password"],
+                            "properties": {
+                                "email": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "admin@mail.com"
+                                },
+                                "password": {
+                                    "type": "string",
+                                    "description": "",
+                                    "example": "12345678"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ApiResponse"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "ApiResponse": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "data": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "externalDocs": {
+        "description": "Encyption Decryption Link",
+        "url": "http://44.219.88.174/API/enc_dec.html"
+    }
+}

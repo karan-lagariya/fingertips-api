@@ -1,0 +1,54 @@
+{
+    "extends": ["airbnb", "prettier"],
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "plugins": ["prettier"],
+    "rules": {
+        "no-console": "off",
+        "no-var": "off",
+        "prefer-arrow-callback": "off",
+        "func-names": "off",
+        "import/extensions": 0,
+        "camelcase": "off",
+        "no-else-return": "off",
+        "no-array-constructor": "off",
+        "no-use-before-define": "off",
+        "no-undef": "off",
+        "no-lonely-if": "off",
+        "no-restricted-syntax": "off",
+        "no-param-reassign": "off",
+        "no-const-assign": "off",
+        "vars-on-top": "off",
+        "no-unused-vars": "off",
+        "object-shorthand": "off",
+        "no-shadow": "off",
+        "arrow-body-style": "off",
+        "guard-for-in": "off",
+        "prefer-destructuring": "off",
+        "no-unreachable-loop": "off",
+        "no-import-module-exports": "off",
+        "no-unused-expressions": "off",
+        "eqeqeq": "off",
+        "no-unneeded-ternary": "off",
+        "no-dupe-else-if": "off",
+        "no-plusplus": "off",
+        "radix": "off",
+        "no-restricted-globals": "off",
+        "no-sequences": "off",
+        "no-underscore-dangle": "off",
+        "no-self-assign": "off",
+        "import/no-cycle": "off",
+        "import/no-extraneous-dependencies": "off",
+        "import/no-dynamic-require": "off",
+        "consistent-return": "off"
+    },
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "extensions": [".js", ".jsx", ".ts", ".tsx"]
+            }
+        }
+    }
+}

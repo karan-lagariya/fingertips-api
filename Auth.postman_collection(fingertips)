@@ -1,0 +1,457 @@
+{
+	"info": {
+		"_postman_id": "4515f9df-deeb-4dbf-a73f-1d1cd3a708a0",
+		"name": "Auth",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25701202"
+	},
+	"item": [
+		{
+			"name": "signup",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept-language",
+						"value": "{{accept-language}}",
+						"type": "text"
+					},
+					{
+						"key": "api-key",
+						"value": "{{api-key}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "tbFijLzQ8KhsOKcO8LplDcg72f8ppTGD0BW2Na5VQohpY4wEOlzuQm8fLJqSrSL/Ths96Ww8Bf0BF37n8UMv1X04PRNKA4AUkYFS7FV8z8dZd/sXeZFls7NYh6+t++sk2pi+3dEOGoJaynYirvuaTcYNMBUXSy1EPoRaTZEr8s3sXao060HcwzUJuajC9XVnQfV8/iYZHywI7owsK2uKPaM+m3MIg3d7BN7C5EHPUvZHA+o5aW18EMXgbkxu1N7weLLujrqxuyw1PvjPunHD2LzuaYu+43wXz0rpQPN8q83Qpi8v3TfgM8AhkEkB4QS6nayQ6dCIzVsiegqkK6djfoLZ9A6kYiDx2Hi+qcyQUxldMCImMSbRnTvel6ybmiLr2EwvWwSUEcGb8BvDNZ3nwbM+5vidK81VFI/R2puKeaypTYyA5f4CVcKTNhP9LaWS58Zj0SZlGkJZ35iWM4iLlzRKqFqYKqVFqGHImPVKDBGd3AmpeLjRt+rTYASf/h3p3YTXLkGfH+yzpq3erfeTZQV8Mu/q52bKeqA4x2avH+JNvLOjI5nTvymtYBWHyf990bzIH+vJ2hGIxn7arftZuUCkOYF0Whf7Qg2xQ0fCwKmmFOyc4tV4vy9F1wkdVc8n9L/oWbDiDNVDHzGA/r38sYWNgb5L3Nkm7fZ2F8THuCWWuQcQ7IcZYOv/r/xravpJ0SvZVOKSWWCe3cGb/IsouS05C0duFJils39fr/sCYmgOdXGVxGbAAIcHq/PUKQeRdEB5xAbanMjGCV4ASm/7KC90BMMpAoFozZNgZW5Z0aUYSrRH9D8Q4CYb850mcqsehGmzv5E0zzc7mE5BgC/wVp0kqxFkDq1ibDk+NMiHOei8zn186JGlYvD4CiIOiO2GlSyVp86FVCDvaCMF44jEup+Qa7vgyGS2eRz7cmTOF0ShzQPkqQWrR98vMmhdXXVSLA+mQfiimssD77pPtlGfMgwg16F118kW0Zw6XTI/ko7uYbwRtvW8DBEbTGFHiXpP",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}auth/signup",
+					"host": [
+						"{{base-url}}auth"
+					],
+					"path": [
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept-language",
+						"value": "{{accept-language}}",
+						"type": "text"
+					},
+					{
+						"key": "api-key",
+						"value": "{{api-key}}",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}auth/logout",
+					"host": [
+						"{{base-url}}auth"
+					],
+					"path": [
+						"logout"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept-language",
+						"value": "{{accept-language}}",
+						"type": "text"
+					},
+					{
+						"key": "api-key",
+						"value": "{{api-key}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "oh7UtkAOXqSQRnbF/cn4QENuy1vo6uE1thMY/3ho1/PCX+uGb59AY8YkjlzDXRUuxnwp7EUe21WunHVUZjNW3u9oiCW9QDHoZw2WCY+NmRd3ZzsDzeEb1dMrAVW7d2D7uXFp8/L0sxUsT8ZyBAxb8HoMDlPY2TtB77Qt4r4KTht81rlOc5V3qUWkSJWZedFiZsSM09OIKjW3K5kOgT/hNmLISalUJysEP619FO8enKY=",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}auth/login",
+					"host": [
+						"{{base-url}}auth"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteAccount",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept-language",
+						"value": "{{accept-language}}",
+						"type": "text"
+					},
+					{
+						"key": "api-key",
+						"value": "{{api-key}}",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base-url}}auth/deleteAccount",
+					"host": [
+						"{{base-url}}auth"
+					],
+					"path": [
+						"deleteAccount"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "send-otp",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept-language",
+						"value": "{{accept-language}}",
+						"type": "text"
+					},
+					{
+						"key": "api-key",
+						"value": "{{api-key}}",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "ZBQwqLwp5ies6iO52qeoVt2DwX65ztqz/lF7021B8xEvPRIHIqfWY3AFhnnLBfZGu4mUsgBFCR7Wt6IpiplVhA==",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}auth/send-otp",
+					"host": [
+						"{{base-url}}auth"
+					],
+					"path": [
+						"send-otp"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verify-otp",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept-language",
+						"value": "{{accept-language}}",
+						"type": "text"
+					},
+					{
+						"key": "api-key",
+						"value": "{{api-key}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "ZBQwqLwp5ies6iO52qeoVt2DwX65ztqz/lF7021B8xEvPRIHIqfWY3AFhnnLBfZGL8XCEHn386JMvgOl4QVRqwULmQqGSdDarMHGEBScf40=",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}auth/verify-otp",
+					"host": [
+						"{{base-url}}auth"
+					],
+					"path": [
+						"verify-otp"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "new-password",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept-language",
+						"value": "{{accept-language}}",
+						"type": "text"
+					},
+					{
+						"key": "api-key",
+						"value": "{{api-key}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "4IORphCzUQIsGKAmo+U7ILhQ7t+rgpODdwdLit0CGUkZC9pzpmD4N6K7qQO5guIYoWoHQa/zylV3Wxk5qjgUng==",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}auth/new-password",
+					"host": [
+						"{{base-url}}auth"
+					],
+					"path": [
+						"new-password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "change-password",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept-language",
+						"value": "{{accept-language}}",
+						"type": "text"
+					},
+					{
+						"key": "api-key",
+						"value": "{{api-key}}",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "EddsvVXtUF6WZL8EM9DtagG82NqEW0hdD/FcB5N/GthLH1FAQixLAdawzmfYHpmSpw7yw2tleWbK/iwx+Dj7TQ==",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}auth/change-password",
+					"host": [
+						"{{base-url}}auth"
+					],
+					"path": [
+						"change-password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-profile",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept-language",
+						"value": "{{accept-language}}",
+						"type": "text"
+					},
+					{
+						"key": "api-key",
+						"value": "{{api-key}}",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}auth/get-profile",
+					"host": [
+						"{{base-url}}auth"
+					],
+					"path": [
+						"get-profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update-profile",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept-language",
+						"value": "{{accept-language}}",
+						"type": "text"
+					},
+					{
+						"key": "api-key",
+						"value": "{{api-key}}",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "CDb31jc+wUYzQPoH0m5CksnP2DvyicKhAVvFLLBXpzyG3o3c1hdEsIsVLrSkPi6AdCBayfIMDEtWsjLn3YoxKhkm1GllQkKAtvDqnL67KAOGeQhHFN7IrTBMOXUvVYOIXSnqtpPMantP5iQO/rTkk9Gx+RSZDmFEH003gC7ptTLTjFcbBqXlI4GvfkRETbf2oBFZO58r+OKLjDNszQFkW8RR5/wZLq7RF0lLlGb3rpvfayhU+2mnjycVD5zhM8c/",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}auth/update-profile",
+					"host": [
+						"{{base-url}}auth"
+					],
+					"path": [
+						"update-profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-static-page-content",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept-language",
+						"value": "{{accept-language}}",
+						"type": "text"
+					},
+					{
+						"key": "api-key",
+						"value": "{{api-key}}",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "jtSmBPgX7zZltsqsRdCr8CdCg9SIazUZ2LZU6SltBZ4=",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}auth/get-static-page-content",
+					"host": [
+						"{{base-url}}auth"
+					],
+					"path": [
+						"get-static-page-content"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,6 @@
+.env
+/node_modules
+/config/config.json
+.env.development
+.env.staging
+.env.production

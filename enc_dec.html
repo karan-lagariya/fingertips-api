@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CryptoJS Encryption & Decryption</title>
+        <style>
+            button {
+                background-color: #9c8cc3;
+                font-weight: 800;
+                padding: 10px;
+                border-radius: 5px;
+            }
+            .box {
+                border: black 1px solid;
+                padding: 5px;
+                margin-top: 25px;
+                overflow-wrap: break-word;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>CryptoJS Encryption & Decryption Example</h1>
+
+        <label for="plaintext">Plaintext:</label><br />
+        <textarea id="plaintext" rows="10" cols="100"></textarea><br />
+
+        <button onclick="encrypt()">Encrypt</button>
+        <button onclick="decrypt()">Decrypt</button>
+        <div class="box">
+            <h3>Encrypted Data:</h3>
+            <div id="encryptedData"></div>
+        </div>
+        <div class="box">
+            <h3>Decrypted Data:</h3>
+            <div id="decryptedData"></div>
+        </div>
+        <script src="crypto-js.js"></script>
+        <script>
+            // Convert a hex-encoded string to a WordArray object
+            function parseHexToWordArray(hexString) {
+                return CryptoJS.enc.Hex.parse(hexString);
+            }
+
+            // Encrypt plaintext using AES with a given key and IV
+            function encryptWithAES(plaintext, key, iv) {
+                if (typeof plaintext === 'object') {
+                    plaintext = JSON.stringify(plaintext);
+                }
+                return CryptoJS.AES.encrypt(plaintext, key, {iv: iv}).toString();
+            }
+
+            // Decrypt ciphertext using AES with a given key and IV
+            function decryptWithAES(ciphertext, key, iv) {
+                const decryptedBytes = CryptoJS.AES.decrypt(ciphertext, key, {iv: iv});
+                const decryptedData = decryptedBytes.toString(CryptoJS.enc.Utf8);
+                let decryptionSend = decryptedData;
+                //   console.log(decryptionSend);
+                // try {
+                //     decryptionSend = JSON.parse(decryptedData);
+                // } catch (error) {
+                //     decryptionSend = decryptedData; // Return as string if not a valid JSON
+                // }
+
+                return decryptionSend;
+            }
+
+            function encrypt() {
+                document.getElementById('decryptedData').innerText = '';
+                const plaintext = document.getElementById('plaintext').value;
+                const encryptionKey = CryptoJS.enc.Hex.parse('FqdX621Shd5XUCRQLe1uvbjhg8qqeZF5'); // 128-bit key in hex
+                const iv = CryptoJS.enc.Hex.parse('FqdX621Shd5XUCRQ'); // 128-bit IV in hex
+
+                const encryptedData = encryptWithAES(plaintext, encryptionKey, iv);
+                document.getElementById('encryptedData').innerText = encryptedData;
+            }
+
+            function decrypt() {
+                document.getElementById('encryptedData').innerText = '';
+                const encryptedData = document.getElementById('plaintext').value;
+                const encryptionKey = CryptoJS.enc.Hex.parse('FqdX621Shd5XUCRQLe1uvbjhg8qqeZF5'); // Same key as used for encryption
+                const iv = CryptoJS.enc.Hex.parse('FqdX621Shd5XUCRQ'); // Same IV as used for encryption
+
+                const decryptedData = decryptWithAES(encryptedData, encryptionKey, iv);
+                document.getElementById('decryptedData').innerText = decryptedData;
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,14 @@
+[
+    {
+        "relation": [
+            "delegate_permission/common.handle_all_urls"
+        ],
+        "target": {
+            "namespace": "fingertips_app",
+            "package_name": "com.fingertips.app",
+            "sha256_cert_fingerprints": [
+                "F6:F1:B7:7C:72:8C:0D:9C:20:C6:E3:50:F3:12:A6:65:61:B5:AF:61:8F:87:4B:7C:D6:BD:0F:7A:FA:E1:B2:C3"
+            ]
+        }
+    }
+]
