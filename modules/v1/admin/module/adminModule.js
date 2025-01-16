@@ -799,7 +799,7 @@ const adminModel = {
                     'phone_no',
                     [
                         SequelizePakcage.fn('CONCAT',
-                            GLOBALS.IMAGE_BASE_URL, SequelizePakcage.col('profile_image'),
+                            GLOBALS.IMAGE_BASE_URL, GLOBALS.USER_PHOTO, SequelizePakcage.col('profile_image'),
                         ),
                         'profile_image',
                     ],
@@ -2339,7 +2339,7 @@ const adminModel = {
                     'guj_work_details',
                     [
                         SequelizePakcage.fn('CONCAT',
-                            GLOBALS.IMAGE_BASE_URL, SequelizePakcage.col('tbl_user_details.profile_image'),
+                            GLOBALS.IMAGE_BASE_URL, GLOBALS.USER_PHOTO, SequelizePakcage.col('tbl_user_details.profile_image'),
                         ),
                         'service_image',
                     ],
@@ -2383,7 +2383,7 @@ const adminModel = {
                 let serviceImages = [];
                 if (imageArray.length > 0) {
                     const serviceData = imageArray.map(data => (
-                        serviceImages.push(GLOBALS.IMAGE_BASE_URL + data)
+                        serviceImages.push(GLOBALS.IMAGE_BASE_URL+ GLOBALS.USER_PHOTO + data)
                     ));
                 }
 
